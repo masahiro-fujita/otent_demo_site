@@ -90,13 +90,25 @@ a {
       background-color: white;
       margin-bottom: 24px;
       &__caption {
+        position: relative;
         width: 240px;
         height: 160px;
-        background-color: #FC6F00;
-        border-radius: 8px;
         img {
+          position: relative;
           width: 100%;
           border-radius: 8px;
+          z-index: 2;
+        }
+        .shadow {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 160px;
+          background-color: #f26d00;
+          border-radius: 8px;
+          z-index: 1;
+          transition: 0.3s;
         }
       }
       &__info {
@@ -111,6 +123,9 @@ a {
           border-radius: 20px;
           &--event {
             background-color: #FCC001;
+          }
+          &--topic {
+            background-color: #ED5D00;
           }
         }
         .info-station {
@@ -131,6 +146,7 @@ a {
         line-height: 28px;
         font-weight: bold;
         margin-top: 10px;
+        transition: color 0.4s;
       }
       &__date {
         font-size: 12px;
@@ -148,6 +164,7 @@ a {
         height: 20px;
         background-color: rgba($color: white, $alpha: 0.7);
         border-radius: 3px;
+        z-index: 3;
         img {
           height: 10px;
           margin-right: 4px;
@@ -157,10 +174,47 @@ a {
           font-weight: bold;
         }
       }
+      a:hover > .article__text {
+        color: #f26d00;
+      }
+      a:hover .shadow {
+        top: 6px;
+        left: 6px;
+      }
     }
   }
   &__event {
-    width: 420px; // 3.5割
+    width: 380px; // 3.5割
     height: 800px;
+    margin-left: 40px;
+    background-color: gray;
   }
+  // .new-label {
+  //   display: inline-block;
+  //   position: relative;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 66px;
+  //   height: 36px;
+  //   line-height: 36px;
+  //   text-align: center;
+  //   font-size: 12px;
+  //   background-color: #FBD400;
+  //   color: black;
+  //   font-weight: 600;
+  //   box-sizing: border-box;
+  //   &:after {
+  //     position: absolute;
+  //     top: 0;
+  //     right: 0;
+  //     border-width: 18px 8px 18px 0px;
+  //     border-color: transparent white transparent transparent;
+  //     border-style: solid;
+  //     content: '';
+  //     width: 0;
+  //     height: 0;
+  //     z-index: 1;
+  //   }
+  // }
 }
